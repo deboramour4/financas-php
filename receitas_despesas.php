@@ -1,5 +1,5 @@
 <?php
-include "valida_sessao.inc.php";
+include "valida_sessao.php";
 // include "conecta_mysql.inc";
 $nome_usuario = $_SESSION["nome_usuario"];
 
@@ -23,7 +23,7 @@ switch ($t) {
 </head >
 	<body >
 		<center >
-			<img src="coins.jpg" width="15%"/>
+			<img src="http://images.all-free-download.com/images/graphicthumb/sack_with_money_design_vector_graphics_set_525052.jpg" width="15%"/>
 			<h1 >Sistema de Controle de Finanças Empresarial </h1 >
 				<hr width="700px" /><br />
 				Formulário para cadastro de <?php echo $tipo ?> (* Obrigatório)<br /><br />
@@ -46,7 +46,7 @@ switch ($t) {
 											<select name="mesRef">
 												<option value="1">Janeiro </option >
 												<option value="2">Fevereiro </option >
-												<option value="3">¸cMaro </option >
+												<option value="3">Março </option >
 												<option value="4">Abril </option >
 												<option value="5">Maio </option >
 												<option value="6">Junho </option >
@@ -66,7 +66,7 @@ switch ($t) {
 				</td >
 			</tr >
 			<tr >
-				<td width="130px">¸c~aDescrio: </td >
+				<td width="130px">Descrição: </td >
 					<td width="200px">
 						<textarea rows="7" cols="69" name="descricao"></textarea >
 						</td >
@@ -79,8 +79,7 @@ switch ($t) {
 						<td width="200px">
 							<input type="reset" value="Limpar">
 							<input type="submit" value="Salvar">
-							<input type="hidden" name="t"
-							value=" <?php echo $t?>">
+							<input type="hidden" name="t" value="<?php echo $t?>">
 						</td >
 					</tr >
 				</table >

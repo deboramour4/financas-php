@@ -21,7 +21,7 @@ if (!(empty($nome_usuario) OR empty($senha_usuario)))
 			unset($_SESSION['senha_usuario']);
 			unset($_SESSION['perfil_usuario']);
 			echo " Voce nao efetuou o LOGIN !" . "<br />";
-			echo "<p align =\' center \'><a href =\' index . php \'> Voltar </a ></p>";
+			echo "<p align =\' center \'><a href ='index.php'> Voltar </a ></p>";
 			exit ;
 		}
 	}
@@ -31,14 +31,14 @@ if (!(empty($nome_usuario) OR empty($senha_usuario)))
 		unset($_SESSION['senha_usuario']);
 		unset($_SESSION['perfil_usuario']);
 		echo " Voce nao efetuou o LOGIN !";
-		echo "<p align =\' center \'><a href =\' index . php \'> Voltar </a ></p>";
+		echo "<p align =\' center \'><a href ='index.php'> Voltar </a ></p>";
 		exit ;
 	}
 }
 else
 {
 	echo " Voce nao efetuou o LOGIN !";
-	echo "<p align =\' center \'><a href =\' index . php \'> Voltar </a ></p>";
+	echo "<p align =\' center \'><a href ='index.php'> Voltar </a ></p>";
 	exit ;
 }
 mysql_close($con);
