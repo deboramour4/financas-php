@@ -1,9 +1,11 @@
 <?php
+session_start();
 // ´eobtm os valores digitados
 $username = $_POST["username"];
 // md5 - evitar que a senha do usuario seja armazenada limpa no banco .
 $senha = $_POST["senha"];
 // acesso ao banco de dados
+$palavra = $_POST["captcha"];
 include "conecta_mysql.php";
 $resultado = mysql_query ("SELECT * FROM usuarios where login = '" . $username . "'");
 $linhas = mysql_num_rows( $resultado );
@@ -20,6 +22,12 @@ if ($senha != mysql_result( $resultado , 0, "senha")) // confere senha
 {
 	echo "<html ><body >";
 	echo "<p align ='center '>A senha está incorreta ! " . $senha . "</p>";
+	echo "<p align ='center '><a href ='index.php '> Voltar </a ></p>";
+	echo " </body ></ html >";
+}
+if ($palavra != $_SESSION["palavra"]){
+    echo "<html ><body >";
+	echo "<p align ='center '>CAPTCHA incorreto! </p>";
 	echo "<p align ='center '><a href ='index.php '> Voltar </a ></p>";
 	echo " </body ></ html >";
 }

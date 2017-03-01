@@ -1,3 +1,9 @@
+<?php 
+	session_start();
+	if(isset($_SESSION["nome_usuario"])) {
+		header("Location: principal.php");
+}
+ ?>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -20,6 +26,11 @@
 					<tr >
 						<td width="150px">Senha : </td>
 						<td width="200px"><input type="password" name="senha" size ="20">
+						</td>
+					</tr >
+					<tr >
+						<td width="150px"><img src="http://localhost/financas-PHP/captcha.php?l=150&a=50&tf=20&ql=5"></td>
+						<td width="200px"><input type="text" name="captcha" size ="15">
 						</td>
 					</tr >
 					<tr >

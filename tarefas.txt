@@ -1,0 +1,2 @@
+3. Colocar gráficos da API do google para a planilha (https://developers.google.com/chart/interactive/docs/gallery)
+4. Fazer algo proposto por vocês mesmos.
