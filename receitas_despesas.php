@@ -20,10 +20,11 @@ switch ($t) {
 <head >
 <meta charset="utf-8">
 <title >Controle de Finanças </title >
+<link rel="stylesheet" type="text/css" href="css/main.css">
 </head >
 	<body >
 		<center >
-			<img src="http://images.all-free-download.com/images/graphicthumb/sack_with_money_design_vector_graphics_set_525052.jpg" width="15%"/>
+			<img src="img/logo.png" width="20%"/>
 			<h1 >Sistema de Controle de Finanças Empresarial </h1 >
 				<hr width="700px" /><br />
 				Formulário para cadastro de <?php echo $tipo ?> (* Obrigatório)<br /><br />

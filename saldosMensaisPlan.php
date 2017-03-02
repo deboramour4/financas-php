@@ -22,7 +22,7 @@
 	$desVarTotal = 0; 
 	$desFixTotal = 0;
 
-	mysql_close($con);
+	//mysql_close($con);
 ?>
 
 
@@ -30,11 +30,13 @@
  <head>
 	 <meta charset="utf-8">
 	 <title >Controle de Finanças </title >
+	 <link rel="stylesheet" type="text/css" href="css/main.css">
  </head >
- <body >
+ <body>
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
  <form method="GET" name="fmes" action="saldosMensaisPlan.php">
 	 <center >
-	 <img src="http://images.all-free-download.com/images/graphicthumb/sack_with_money_design_vector_graphics_set_525052.jpg" width="15%"/>
+	 <img src="img/logo.png" width="20%"/>
 	 <h1 >Sistema de Controle de Finanças Empresarial </h1 >
 	 <hr width="700px" /><br />
 
@@ -158,6 +160,11 @@
 	</tr >
 	</table ><br />
 
+	<b>GRÁFICOS</b>
+	<hr width="700px" />
+	 <div id="chart_div" style="width: 70%; height: 500px;"></div>
+	 <p style="width: 700px;" >Nesse <b>gráfico</b> você observará os valores totais de receitas e despesas de cada mês. Lembrando que os <b>valores fixos</b> aparecem em todos os meses.</p>
+
 	<b>SALDO </b>
 	<hr width="700px" />
 	<table width="700px" border="0px" >
@@ -185,6 +192,67 @@
 	 ?>
  </center >
  </form >
+
+<?php
+	$valores =[];
+	$num = 0;
+
+	for ($i=1; $i <=12; $i++) { 
+		for ($j=1; $j <=2; $j++) { 
+			$result = mysql_query("SELECT SUM(valor) AS result FROM receitas_despesas WHERE mes=".$i." AND classe=1 AND tipo=".$j); 
+			$row = mysql_fetch_assoc($result); 
+			$valores[$num] = $row['result'];
+			$num++;
+		}
+	}
+
+	$despesas_fixo = mysql_query("SELECT SUM(valor) AS result FROM receitas_despesas WHERE tipo=2 AND classe=2");
+	$rowDF = mysql_fetch_assoc($despesas_fixo); 
+	$valorDF= $rowDF['result'];
+
+	$receitas_fixo = mysql_query("SELECT SUM(valor) AS result FROM receitas_despesas WHERE tipo=1 AND classe=2");
+	$rowRF = mysql_fetch_assoc($receitas_fixo); 
+	$valorRF= $rowRF['result'];
+
+	mysql_close($con);
+?>
+
+
+<script type="text/javascript">
+	<?php echo $valores[10]; ?>
+	google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Meses', 'Receitas', 'Despesas'],
+          ['Janeiro', <?php echo $valores[0]+$valorRF; ?>, <?php echo $valores[1]+$valorDF; ?>],
+          ['Fevereiro',  <?php echo $valores[2]+$valorRF; ?>,  <?php echo $valores[3]+$valorDF; ?>],
+          ['Março',  <?php echo $valores[4]+$valorRF; ?>,  <?php echo $valores[5]+$valorDF; ?>],
+          ['Abril',  <?php echo $valores[6]+$valorRF; ?>, <?php echo $valores[7]+$valorDF; ?>],
+          ['Maio',  <?php echo $valores[8]+$valorRF; ?>,  <?php echo $valores[9]+$valorDF; ?>],
+          ['Junho',  <?php echo $valores[10]+$valorRF; ?>,   <?php echo $valores[11]+$valorDF; ?>],
+          ['Julho',  <?php echo $valores[12]+$valorRF; ?>,   <?php echo $valores[13]+$valorDF; ?>],
+          ['Agosto', <?php echo $valores[14]+$valorRF; ?>,   <?php echo $valores[15]+$valorDF; ?>],
+          ['Setembro',  <?php echo $valores[16]+$valorRF; ?>,   <?php echo $valores[17]+$valorDF; ?>],
+          ['Outubro',  <?php echo $valores[18]+$valorRF; ?>,   <?php echo $valores[19]+$valorDF; ?>],
+          ['Novembro', <?php echo $valores[20]+$valorRF; ?>,   <?php echo $valores[21]+$valorDF; ?>],
+          ['Dezembro', <?php echo $valores[22]+$valorRF; ?>,   <?php echo $valores[23]+$valorDF; ?>]
+        ]);
+
+        var options = {
+          title: 'Balanço geral de Receitas e Despesas (anual)',
+          hAxis: {title: 'Meses',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0}
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+
+ </script>
+
+
  </body >
  </html >
 

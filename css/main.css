@@ -1,0 +1,10 @@
+@font-face {
+    font-family: myFont;
+    src: url(comfortaa.woff);
+}
+
+body{
+	background-image: url("../img/bg.jpg");
+	font-family: "Arial", "sans-serif";
+}
+

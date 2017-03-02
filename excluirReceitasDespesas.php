@@ -11,6 +11,7 @@
 	<title>Excluir</title>
 	<link rel="stylesheet" type="text/css" href="css/skeleton.css">
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
 	<h1 align="center">Excluir</h1>

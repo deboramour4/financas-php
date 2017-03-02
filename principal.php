@@ -32,11 +32,15 @@
  ?>
 
  <html>
-	 <head><title> Controle de Finanças </title></head>
+	 <head>
+	 <title> Controle de Finanças </title>
+	 <link rel="stylesheet" type="text/css" href="css/main.css">
+	 </head>
+
 	 <body>
 		 <form method ="POST" action ="login.php">
 			 <center>
-				 <img src="http://images.all-free-download.com/images/graphicthumb/sack_with_money_design_vector_graphics_set_525052.jpg" width ="15%"/>
+				 <img src="img/logo.png" width ="15%"/>
 
 				 <h1> Sistema de Controle de Finanças Empresarial </h1>
 				 <hr width ="700px" /><br />

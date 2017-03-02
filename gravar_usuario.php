@@ -42,10 +42,11 @@ mysql_close($con);
 <head >
 <meta charset="utf-8">
 <title >Controle de Finanças </title >
+<link rel="stylesheet" type="text/css" href="css/main.css">
 </head >
 	<body >
 	<center >
-		<img src="https://lh4.googleusercontent.com/rQ-f7UCQLwOqHcg8UtGhNnVeKt8vzPOs6fJ5eHKlJT5NvPHZjuxsWVCXRdJg2yyL1llsWCvoFah5OQTiyMB91ussvHZxjVNxMbwQaPr0PKmK3f6pxTpK67U7IV3nc3NONw" height="30%"/>
+		<img src="img/logo.png" height="20%"/>
 		<h1 >$$$ Cadastro realizado com sucesso $$$ </h1 >
 			<hr width="700px"/><br />
 			<?php

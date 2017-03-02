@@ -11,10 +11,11 @@ if (!($perfil_usuario==2))
 	<head >
 		<meta charset="utf-8">
 		<title >Cadastro de usuários </title >
+		<link rel="stylesheet" type="text/css" href="css/main.css">
 	</head >
 	<body >
 		<center >
-		<img src="https://lh4.googleusercontent.com/rQ-f7UCQLwOqHcg8UtGhNnVeKt8vzPOs6fJ5eHKlJT5NvPHZjuxsWVCXRdJg2yyL1llsWCvoFah5OQTiyMB91ussvHZxjVNxMbwQaPr0PKmK3f6pxTpK67U7IV3nc3NONw" width="15%"/>
+		<img src="img/logo.png" width="20%"/>
 		<h1 >Cadastro de usuários </h1 >
 			<hr width="700px" /><br />
 			Formulário para cadastro de novos usuários (* Obrigatório)<br /><br />

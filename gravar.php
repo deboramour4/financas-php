@@ -44,10 +44,11 @@ mysql_close($con);
 <head >
 <meta charset="utf-8">
 <title >Controle de Finanças </title >
+<link rel="stylesheet" type="text/css" href="css/main.css">
 </head >
 	<body >
 	<center >
-		<img src="http://images.all-free-download.com/images/graphicthumb/sack_with_money_design_vector_graphics_set_525052.jpg" height="30%"/>
+		<img src="img/logo.png" height="30%"/>
 		<h1 >$$$ Sistema de Controle de Financas $$$ </h1 >
 			<hr width="700px"/><br />
 			<?php
