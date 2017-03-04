@@ -91,9 +91,15 @@
 		 ?>
 
 		 <tr >
-			 <td width =33%></td>
-			 <td align='right' width='33%'><b>Total: </b></td>
+			<th width =33%></th>
+			<th width =33%></th>
+			<th width='33%'><b>Total: </b></th>
 		 </tr >
+		 <tr>
+		 	<th width =33%></th>
+			<th width =33%></th>
+		 	<th width =33% align="right"><b>$ <?php echo $recFixTotal; ?></b></th>
+		 </tr>
 	 </table ><br >
 
 	 Variaveis
@@ -111,8 +117,15 @@
 	$recVarTotal = $recVarTotal + $linha["valor"];
 	} ?>
 
+	<tr >
+		<th width =33%></th>
+		<th width =33%></th>
+		<th width='33%'><b>Total: </b></th>
+	</tr >
 	<tr>
-		<td width='33%'></td><td align='right' width='33%'><b>Total: </b></td>
+	 	<th width =33%></th>
+		<th width =33%></th>
+	 	<th width =33% align="right"><b>$ <?php echo $recVarTotal; ?></b></th>
 	</tr>
 	 </table ><br />
 	 <b>Lista de DESPESAS - Mes de <?php echo $meses[$mes -1]?></b><br /><br />
@@ -134,8 +147,15 @@
 	 $desFixTotal = $desFixTotal + $linha["valor"];
 	 } ?>
 	 <tr >
-	 	<td width =33%></td><td align='right ' width =33%><b>Total: </b></td>
+		<th width =33%></th>
+		<th width =33%></th>
+		<th width='33%'><b>Total: </b></th>
 	 </tr >
+	 <tr>
+	 	<th width =33%></th>
+		<th width =33%></th>
+	 	<th width =33% align="right"><b>$ <?php echo $desFixTotal; ?></b></th>
+	</tr>
 	 </table >
 	 <br />
 	 Variaveis
@@ -153,11 +173,16 @@
 	$desVarTotal = $desVarTotal + $linha["valor"];
 	} ?>
 
-	<tr>
-	<td width="33%"></td>
-	<td align='right' width="33%"><b>Total: </b>
-	</td>
-	</tr >
+	<tr >
+		<th width =33%></th>
+		<th width =33%></th>
+		<th width='33%'><b>Total: </b></th>
+	 </tr >
+	 <tr>
+	 	<th width =33%></th>
+		<th width =33%></th>
+	 	<th width =33% align="right"><b>$ <?php echo $desVarTotal; ?></b></th>
+	 </tr>
 	</table ><br />
 
 	<b>GRÁFICOS</b>
@@ -177,7 +202,7 @@
 	<tr>
 	 <td width="50%">Saldo: </td>
 	 <td align="right" width="50%">
-	 	<b><?php echo ($recFixTotal+$recVarTotal)-($desFixTotal+$desVarTotal) ?> </b>
+	 	<b>$ <?php echo ($recFixTotal+$recVarTotal)-($desFixTotal+$desVarTotal) ?> </b>
 	 </td>
 	</tr>
 	<tr >
@@ -199,18 +224,18 @@
 
 	for ($i=1; $i <=12; $i++) { 
 		for ($j=1; $j <=2; $j++) { 
-			$result = mysql_query("SELECT SUM(valor) AS result FROM receitas_despesas WHERE mes=".$i." AND classe=1 AND tipo=".$j); 
+			$result = mysql_query("SELECT SUM(valor) AS result FROM receitas_despesas WHERE mes=".$i." AND classe=1 AND usuario=".$id_usuario." AND tipo=".$j);
 			$row = mysql_fetch_assoc($result); 
 			$valores[$num] = $row['result'];
 			$num++;
 		}
 	}
 
-	$despesas_fixo = mysql_query("SELECT SUM(valor) AS result FROM receitas_despesas WHERE tipo=2 AND classe=2");
+	$despesas_fixo = mysql_query("SELECT SUM(valor) AS result FROM receitas_despesas WHERE tipo=2 AND classe=2 AND usuario=".$id_usuario);
 	$rowDF = mysql_fetch_assoc($despesas_fixo); 
 	$valorDF= $rowDF['result'];
 
-	$receitas_fixo = mysql_query("SELECT SUM(valor) AS result FROM receitas_despesas WHERE tipo=1 AND classe=2");
+	$receitas_fixo = mysql_query("SELECT SUM(valor) AS result FROM receitas_despesas WHERE tipo=1 AND classe=2 AND usuario=".$id_usuario);
 	$rowRF = mysql_fetch_assoc($receitas_fixo); 
 	$valorRF= $rowRF['result'];
 
